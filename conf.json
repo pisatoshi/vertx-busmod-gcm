@@ -1,0 +1,8 @@
+{
+  "address" : "vertx.mod.testexample",
+  "gcm_registration_ids_limit" : 1000,
+  "gcm_max_seconds_to_leave" : 2419200,
+  "gcm_backoff_retries" : 5,
+  "gcm_url" : "https://android.googleapis.com/gcm/send",
+  "gcm_port" : 443
+}
