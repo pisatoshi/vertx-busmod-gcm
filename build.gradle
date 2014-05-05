@@ -104,3 +104,35 @@ def configurePom(def pom) {
     }
   }
 }
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.3'
+    }
+}
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'bintray'
+
+publishing {
+    publications {
+        mavenStuff(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+bintray {
+    user = bintray_user
+    key = bintray_api_key
+    publications = ['mavenStuff']
+    pkg {
+        repo = 'maven'
+        name = 'vertx-busmod-gcm'
+        licenses = [ 'Apache-2.0' ]
+    }
+    dryRun = true
+}
